@@ -1,0 +1,15 @@
+const TelegramBot = require('node-telegram-bot-api');
+const token = '7571311181:AAFx5XNuTpcRT2nFOQe2izWwTZj_qs8wTtQ';
+const bot = new TelegramBot(token, { polling: true });
+
+bot.on('message', function (msg) {
+    if (msg.text === "hi") {
+        bot.sendMessage(msg.chat.id, "Hi, how can I help you?");
+    } else if (msg.text === "tell me your name") {
+        bot.sendMessage(msg.chat.id, "chatBot");
+    } else if (msg.text === "tell about your self") {
+        bot.sendMessage(msg.chat.id, "I am chatBot. I can give responses based on your commands.");
+    } else if (msg.text === "bye") {
+        bot.sendMessage(msg.chat.id, "****bye have a good day****");
+    }
+});
